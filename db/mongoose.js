@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 
-const uri = "mongodb://localhost:27017/Signinsignout"; // তোমার DB নাম বসাও
+const uri = process.env.MONGO_URI; 
 
-// MongoDB connect
 mongoose.connect(uri)
-  .then(() => console.log('✅ MongoDB connected successfully'))
-  .catch(err => console.error('Connection error:', err));
+  .then(() => console.log('✅ MongoDB connected'))
+  .catch(err => console.error('❌ DB Error:', err));
 
 module.exports = mongoose;
